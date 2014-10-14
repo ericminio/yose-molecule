@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'jacoco'
 
 defaultTasks 'build'
 
@@ -38,6 +39,15 @@ run {
     if (!project.hasProperty('port')) ext.port = 8080
     args port
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+    }
+}
+
+task coverage(dependsOn: ['test', 'jacocoTestReport'])
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
