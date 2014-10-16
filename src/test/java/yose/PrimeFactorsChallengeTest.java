@@ -9,6 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
+
+import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 public class PrimeFactorsChallengeTest {
 
@@ -35,6 +39,6 @@ public class PrimeFactorsChallengeTest {
         response = request.get("/primeFactors?number=8");
         response.assertOK();
         response.assertHasContentType("application/json");
-        response.assertHasContent("{\"number\":8,\"decomposition\":[2,2,2]}");
+        response.assertHasContent(equalTo("{\"number\":8,\"decomposition\":[2,2,2]}"));
     }
 }
