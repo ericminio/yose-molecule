@@ -35,7 +35,6 @@ public class PrimeFactorsChallengeTest {
         response = request.get("/primeFactors?number=8");
         response.assertOK();
         response.assertHasContentType("application/json");
-        response.assertHasContent("{\"number\":8}");
-        response.assertHasContent("{\"decomposition\":[2,2,2]}");
+        response.assertHasContent("{\"number\":8,\"decomposition\":[2,2,2]}");
     }
 }

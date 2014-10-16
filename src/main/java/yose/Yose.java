@@ -23,6 +23,10 @@ public class Yose {
                 response.contentType(JSON).body(gson.toJson(new Pong()));
             });
 
+            get("/primeFactors").to((request, response) -> {
+                response.contentType(JSON).body(gson.toJson(new PowerOfTwo(Integer.parseInt(request.parameter("number")))));
+            });
+
             get("/").to((request, response) -> response.body("Hello Yose"));
 
         }});
