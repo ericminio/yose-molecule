@@ -20,10 +20,6 @@ public class Yose {
         server.start(new Routes(gson));
     }
 
-    public static class Pong {
-        public final boolean alive = true;
-    }
-
     private static final int PORT = 0;
 
     private static int port(String[] args) {
