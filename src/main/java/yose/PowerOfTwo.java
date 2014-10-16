@@ -1,15 +1,24 @@
 package yose;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class PowerOfTwo {
 
-    private Integer number;
-    private final List<Integer> decomposition;
+    protected Integer number;
+    protected final List<Integer> decomposition;
 
     public PowerOfTwo(Integer number) {
         this.number = number;
-        this.decomposition = Arrays.asList(2, 2, 2);
+        List<Integer> factors = new ArrayList<Integer>();
+
+        int factor = 2;
+        while(number >1) {
+            factors.add(factor);
+            number /= factor;
+        }
+
+        this.decomposition = factors;
     }
 }
