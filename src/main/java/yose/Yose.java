@@ -30,6 +30,6 @@ public class Yose {
         WebServer server = WebServer.create(port(args));
         Yose yose = new Yose(new GsonBuilder().setPrettyPrinting().create());
         yose.start(server);
-        System.out.println("Access at: " + server.uri() + "/ping");
+        System.out.println("Access at: " + server.uri());
     }
 }
