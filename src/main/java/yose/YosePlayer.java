@@ -3,16 +3,13 @@ package yose;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.vtence.molecule.WebServer;
-import com.vtence.molecule.routing.DynamicRoutes;
 
 import java.io.IOException;
 
-import static com.vtence.molecule.http.MimeTypes.JSON;
-
-public class Yose {
+public class YosePlayer {
     private final Gson gson;
 
-    public Yose(Gson gson) {
+    public YosePlayer(Gson gson) {
         this.gson = gson;
     }
 
@@ -28,8 +25,8 @@ public class Yose {
 
     public static void main(String[] args) throws IOException {
         WebServer server = WebServer.create(port(args));
-        Yose yose = new Yose(new GsonBuilder().setPrettyPrinting().create());
-        yose.start(server);
+        YosePlayer yosePlayer = new YosePlayer(new GsonBuilder().setPrettyPrinting().create());
+        yosePlayer.start(server);
         System.out.println("Access at: " + server.uri());
     }
 }

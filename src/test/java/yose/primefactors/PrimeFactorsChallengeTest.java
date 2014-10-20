@@ -1,4 +1,4 @@
-package yose;
+package yose.primefactors;
 
 import com.google.gson.Gson;
 import com.vtence.molecule.WebServer;
@@ -7,26 +7,23 @@ import com.vtence.molecule.support.HttpResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import yose.YosePlayer;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
 
 public class PrimeFactorsChallengeTest {
 
-    int PORT = 9999;
-    WebServer server = WebServer.create(PORT);
+    YosePlayer yosePlayer = new YosePlayer(new Gson());
+    WebServer server = WebServer.create(9999);
 
-    HttpRequest request = new HttpRequest(PORT);
+    HttpRequest request = new HttpRequest(9999);
     HttpResponse response;
-
-    Yose yose = new Yose(new Gson());
 
     @Before
     public void startGame() throws Exception {
-        yose.start(server);
+        yosePlayer.start(server);
     }
 
     @After

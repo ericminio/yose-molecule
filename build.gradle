@@ -19,6 +19,12 @@ def libs = [
         junit             : 'junit:junit:4.11@jar',
         htmlunit          : 'net.sourceforge.htmlunit:htmlunit:2.14',
         molecule_test     : 'com.vtence.molecule:molecule:0.4-SNAPSHOT:tests',
+        selenium_api      : 'org.seleniumhq.selenium:selenium-api:2.41.0',
+        selenium_remote   : 'org.seleniumhq.selenium:selenium-remote-driver:2.43.1',
+        selenium_firefox  : 'org.seleniumhq.selenium:selenium-firefox-driver:2.43.1',
+        selenium_phantom  : 'com.github.detro.ghostdriver:phantomjsdriver:1.1.0',
+        windowlicker_core : 'com.googlecode.windowlicker:windowlicker-core:r268@jar',
+        windowlicker_web  : 'com.googlecode.windowlicker:windowlicker-web:r268@jar',
 ]
 
 dependencies {
@@ -30,6 +36,14 @@ dependencies {
     testCompile libs.junit
     testCompile libs.htmlunit
     testCompile libs.molecule_test
+    testCompile libs.selenium_api
+    testCompile libs.selenium_firefox
+    testCompile(libs.selenium_phantom) {
+        exclude module: 'selenium-java'
+        exclude module: 'selenium-server'
+    }
+    testCompile libs.windowlicker_core
+    testCompile libs.windowlicker_web
 }
 
 mainClassName = 'yose.Yose'

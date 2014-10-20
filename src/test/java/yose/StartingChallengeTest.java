@@ -14,17 +14,15 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 public class StartingChallengeTest {
 
-    int PORT = 9999;
-    WebServer server = WebServer.create(PORT);
+    YosePlayer yosePlayer = new YosePlayer(new Gson());
+    WebServer server = WebServer.create(9999);
 
-    HttpRequest request = new HttpRequest(PORT);
+    HttpRequest request = new HttpRequest(9999);
     HttpResponse response;
-
-    Yose yose = new Yose(new Gson());
 
     @Before
     public void startGame() throws Exception {
-        yose.start(server);
+        yosePlayer.start(server);
     }
 
     @After

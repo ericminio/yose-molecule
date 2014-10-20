@@ -1,4 +1,4 @@
-package yose;
+package yose.minesweeper;
 
 import com.google.gson.Gson;
 import com.vtence.molecule.WebServer;
@@ -7,24 +7,21 @@ import com.vtence.molecule.support.HttpResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import yose.YosePlayer;
 
 import java.io.IOException;
 
-import static org.hamcrest.Matchers.containsString;
+public class MinesweeperService {
 
-public class MinesweeperChallengeTest {
+    YosePlayer yosePlayer = new YosePlayer(new Gson());
+    WebServer server = WebServer.create(9999);
 
-    int PORT = 9999;
-    WebServer server = WebServer.create(PORT);
-
-    HttpRequest request = new HttpRequest(PORT);
+    HttpRequest request = new HttpRequest(9999);
     HttpResponse response;
-
-    Yose yose = new Yose(new Gson());
 
     @Before
     public void startGame() throws Exception {
-        yose.start(server);
+        yosePlayer.start(server);
     }
 
     @After
@@ -33,10 +30,14 @@ public class MinesweeperChallengeTest {
     }
 
     @Test
-    public void passesTheBoardChallenge() throws IOException {
+    public void isOnline() throws IOException {
         response = request.get("/minesweeper");
         response.assertOK();
+    }
+
+    @Test
+    public void respondsWithHtml() throws IOException {
+        response = request.get("/minesweeper");
         response.assertHasContentType("text/html");
-        response.assertHasContent(containsString("<title>Minesweeper</title>"));
     }
 }

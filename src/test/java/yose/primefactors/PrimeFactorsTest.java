@@ -1,6 +1,7 @@
-package yose;
+package yose.primefactors;
 
 import org.junit.Test;
+import yose.PrimeFactors;
 
 import java.util.Arrays;
 
