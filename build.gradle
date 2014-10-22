@@ -46,7 +46,7 @@ dependencies {
     testCompile libs.windowlicker_web
 }
 
-mainClassName = 'yose.Yose'
+mainClassName = 'yose.YosePlayer'
 applicationName = 'yose-molecule'
 
 run {
