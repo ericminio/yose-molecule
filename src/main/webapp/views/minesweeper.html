@@ -5,12 +5,14 @@
     </head>
 
     <body>
-        <table id="grid">
+        <table id="grid" border="1">
         </table>
 
         <script src="/js/minesweeper.js"></script>
         <script>
-            displayGrid();
+            window.onload = function onLoad() {
+                displayGrid();
+            }
         </script>
     </body>
 </html>
