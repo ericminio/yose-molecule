@@ -4,8 +4,8 @@ import com.objogate.wl.UnsynchronizedProber;
 import com.objogate.wl.web.AsyncWebDriver;
 import com.vtence.molecule.WebServer;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import yose.YosePlayer;
-import yose.minesweeper.support.MinesweeperPage;
 
 public class Athlete {
 
@@ -19,8 +19,7 @@ public class Athlete {
     public Athlete(YosePlayer yosePlayer) {
         this.yosePlayer = yosePlayer;
         this.server = WebServer.create(PORT);
-        this.browser = new AsyncWebDriver(new UnsynchronizedProber(), new FirefoxDriver());
-
+        this.browser = new AsyncWebDriver(new UnsynchronizedProber(), new PhantomJSDriver());
     }
 
     public void startPerformance() throws Exception {

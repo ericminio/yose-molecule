@@ -3,7 +3,10 @@ package yose;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.vtence.molecule.WebServer;
+import com.vtence.molecule.middlewares.FileServer;
+import com.vtence.molecule.middlewares.StaticAssets;
 
+import java.io.File;
 import java.io.IOException;
 
 public class YosePlayer {
@@ -14,7 +17,8 @@ public class YosePlayer {
     }
 
     public void start(WebServer server) throws IOException {
-        server.start(new Routes(gson));
+        server.add(new StaticAssets(new FileServer(new File("src/main/webapp/")), "/js"))
+              .start(new Routes(gson));
     }
 
     private static final int PORT = 0;
