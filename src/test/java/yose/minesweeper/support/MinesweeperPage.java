@@ -14,7 +14,7 @@ public class MinesweeperPage {
     }
 
     public void displaysTheCorrectTitle() {
-        browser.assertTitle(equalTo("Minesweeper"));
+        browser.element(By.id("title")).assertText(equalTo("Minesweeper"));
     }
 
     public void displaysTheCorrectGrid() {
