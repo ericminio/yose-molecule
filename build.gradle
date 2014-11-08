@@ -77,6 +77,6 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
 
-task tests(dependsOn: ['test', 'npm_test'])
+task ci(dependsOn: ['clean', 'test', 'npm_install', 'npm_test'])
 
 task stage(dependsOn: ['clean', 'installApp'])
