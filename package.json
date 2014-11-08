@@ -1,0 +1,28 @@
+{
+  "name": "yose-molecule",
+  "version": "1.0.0",
+  "description": "use me to run js tests",
+  "scripts": {
+    "test": "node_modules/jasmine-node/bin/jasmine-node src/test/scripts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ericminio/yose-molecule.git"
+  },
+  "keywords": [
+    "yose",
+    "yosethegame",
+    "molecule",
+    "java",
+    "javascript"
+  ],
+  "author": "Eric Mignot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ericminio/yose-molecule/issues"
+  },
+  "homepage": "https://github.com/ericminio/yose-molecule",
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  }
+}

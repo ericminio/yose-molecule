@@ -1,6 +1,11 @@
+plugins {
+    id "com.moowork.node" version "0.7"
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'jacoco'
+apply plugin: 'com.moowork.node'
 
 defaultTasks 'build'
 
@@ -31,7 +36,6 @@ dependencies {
     compile libs.gson
     compile libs.molecule
     compile libs.simple
-
     testCompile libs.hamcrest_all
     testCompile libs.junit
     testCompile libs.htmlunit
@@ -66,5 +70,7 @@ task coverage(dependsOn: ['test', 'jacocoTestReport'])
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
+
+task tests(dependsOn: ['test', 'npm_test'])
 
 task stage(dependsOn: ['clean', 'installApp'])
