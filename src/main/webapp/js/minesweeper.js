@@ -11,4 +11,5 @@ function displayGrid($) {
     }
 }
 
+var module = module || {};
 module.exports = displayGrid;
