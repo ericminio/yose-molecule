@@ -17,7 +17,7 @@ public class YosePlayer {
     }
 
     public void start(WebServer server) throws IOException {
-        server.add(new StaticAssets(new FileServer(new File("src/main/webapp/")), "/js"))
+        server.add(new StaticAssets(new FileServer(new File("src/main/webapp/")), "/js", "/css"))
               .start(new Routes(gson));
     }
 

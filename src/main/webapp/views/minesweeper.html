@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link href="/css/minesweeper.css" rel="stylesheet" type="text/css">
+        <script src="/js/jquery-2.1.1.min.js"></script>
+        <script src="/js/minesweeper.js"></script>
+    </head>
 
     <body>
         <div id="title" >Minesweeper</div>
 
         <table id="grid"></table>
 
-        <script src="/js/minesweeper.js"></script>
         <script>
-        window.onload = function() {
-            displayGrid();
-        };
+            window.onload = function() {
+                displayGrid($);
+            };
         </script>
     </body>
 </html>

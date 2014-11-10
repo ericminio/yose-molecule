@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/ericminio/yose-molecule",
   "devDependencies": {
+    "cheerio": "^0.18.0",
     "jasmine-node": "^1.14.5"
   }
 }
