@@ -28,6 +28,8 @@ public class YosePlayerTest {
     public void startGame() throws Exception {
         yosePlayer.serveStaticAssetsInFolder(staticAssetsFolder);
         yosePlayer.start(server);
+
+        new File(staticAssetsFolder).mkdir();
     }
 
     @After
