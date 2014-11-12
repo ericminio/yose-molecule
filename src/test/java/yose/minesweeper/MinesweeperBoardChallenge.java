@@ -16,7 +16,7 @@ public class MinesweeperBoardChallenge {
     @Before
     public void startPerformance() throws Exception {
         athlete = new Athlete(new YosePlayer(new GsonBuilder().setPrettyPrinting().create()));
-        referee = new Referee(athlete);
+        referee = new Referee().judging(athlete);
         athlete.startPerformance();
     }
 
