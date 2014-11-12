@@ -3,4 +3,5 @@ build
 .idea
 *.iml
 node_modules
+src/test/data
 
