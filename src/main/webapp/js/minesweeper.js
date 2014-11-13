@@ -28,7 +28,7 @@ function load() {
     }
 }
 
-var module = module || {};
+var module = module || { exports: {} };
 
 module.exports.displayGrid = displayGrid;
 module.exports.lines = lines;
