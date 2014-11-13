@@ -11,7 +11,7 @@ function lines(size) {
     return lines;
 }
 
-function displayGrid() {
+function displayGrid(document) {
     var table = document.getElementById('grid');
     table.innerHTML = lines(8);
 }

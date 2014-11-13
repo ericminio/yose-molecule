@@ -9,7 +9,7 @@ describe('Minesweeper', function() {
 
     beforeEach(function() {
         document = jsdom('<table id="grid"></table>');
-        displayGrid();
+        displayGrid(document);
     });
 
     it('contains 8x8 cells', function() {
