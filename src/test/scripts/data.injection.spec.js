@@ -10,7 +10,7 @@ describe('Data injection challenge', function() {
     });
 
     it('load data in grid from document.grid', function() {
-        document = jsdom('<html><head></head><body><table id="grid">'+ lines(2) +'</table></body></html>');
+        document = jsdom('<table id="grid">'+ lines(2) +'</table>');
         document.grid = [ ['bomb', 'empty' ], ['empty', 'empty' ] ];
         load();
 

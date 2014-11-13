@@ -1,15 +1,19 @@
 var displayGrid = require('../../main/webapp/js/minesweeper');
 var cheerio = require('cheerio');
+var jsdom = require('jsdom').jsdom;
 
 describe('Minesweeper', function() {
 
     it('contains 8x8 cells', function() {
-        var $ = cheerio.load('<table id="grid"></table>');
-        displayGrid($);
+        document = jsdom('<table id="grid"></table>');
+        displayGrid();
 
-        for (var row=1; row<=8 ; row++) {
-            for (var column=1; column<=8; column++) {
-                expect($('#cell-'+ row + 'x' + column).length).toEqual(1);
+
+        var size = 8;
+        for (var row=1; row<= size ; row++) {
+            for (var column=1; column<=size; column++) {
+                var cellId = 'cell-'+ row + 'x' + column;
+                expect(document.getElementById(cellId)).not.toEqual(null);
             }
         }
     });

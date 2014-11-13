@@ -1,6 +1,6 @@
-function displayGrid($) {
-    var table = $('#grid');
-    table.append(lines(8));
+function displayGrid() {
+    var table = document.getElementById('grid');
+    table.innerHTML = lines(8);
 }
 
 function lines(size) {
