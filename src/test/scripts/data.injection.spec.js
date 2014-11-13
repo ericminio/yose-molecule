@@ -1,7 +1,8 @@
-var load = require('../../main/webapp/js/load');
 var jsdom = require('jsdom').jsdom;
+var minesweeper = require('../../main/webapp/js/minesweeper');
 
-var lines = require('../../main/webapp/js/minesweeper').lines;
+var lines = minesweeper.lines;
+var load = minesweeper.load;
 
 describe('Data injection challenge', function() {
 
@@ -11,9 +12,10 @@ describe('Data injection challenge', function() {
 
     it('load data in grid from document.grid', function() {
         document = jsdom('<table id="grid">'+ lines(2) +'</table>');
-        document.grid = [ ['bomb', 'empty' ], ['empty', 'empty' ] ];
+        document.grid = [ ['bomb', 'empty' ], ['empty', 'bomb' ] ];
         load();
 
-        expect(document.getElementById('cell-1x1').attributes['class']).toEqual('bomb');
+        expect(document.getElementById('cell-1x1').attributes['class'].value).toEqual('bomb');
+        expect(document.getElementById('cell-2x2').attributes['class'].value).toEqual('bomb');
     });
 });
