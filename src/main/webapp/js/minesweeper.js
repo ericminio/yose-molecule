@@ -1,9 +1,13 @@
+function cell(row, column) {
+    return 'class="empty" id="cell-' + row + 'x' + column + '"';
+}
+
 function lines(size) {
     var lines = '';
     for (var row=1; row<=size ; row++) {
         var line = '<tr>';
         for (var column=1; column<=size; column++) {
-            line += '<td class="empty" id="cell-'+ row + 'x' + column + '"></td>';
+            line += '<td ' + cell(row, column) + ' />';
         }
         line += '</tr>';
         lines += line;
@@ -33,3 +37,4 @@ var module = module || { exports: {} };
 module.exports.displayGrid = displayGrid;
 module.exports.lines = lines;
 module.exports.load = load;
+module.exports.cell = cell;
