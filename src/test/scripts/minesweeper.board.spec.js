@@ -34,5 +34,9 @@ describe('Minesweeper', function() {
         it('lets clients decide the tag hosting the cell', function() {
             expect(cell.tagName).toEqual('SPAN');
         });
+
+        it('offers a way to play on this cell', function() {
+            expect(cell.attributes['onclick'].value).toEqual('playCell(this.id, document);');
+        });
     });
 });

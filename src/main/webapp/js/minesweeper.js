@@ -1,5 +1,5 @@
 function cell(row, column) {
-    return 'class="empty" id="cell-' + row + 'x' + column + '"';
+    return 'onclick="playCell(this.id, document);" class="empty" id="cell-' + row + 'x' + column + '"';
 }
 
 function lines(size) {
@@ -30,6 +30,10 @@ function load() {
             }
         }
     }
+}
+
+function playCell(id, document) {
+
 }
 
 var module = module || { exports: {} };
