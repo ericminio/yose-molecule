@@ -33,7 +33,10 @@ function load() {
 }
 
 function playCell(id, document) {
-
+    var classes = document.getElementById(id).attributes['class'];
+    if (classes.value == 'bomb') {
+        classes.value = 'lost';
+    }
 }
 
 var module = module || { exports: {} };
@@ -42,3 +45,4 @@ module.exports.displayGrid = displayGrid;
 module.exports.lines = lines;
 module.exports.load = load;
 module.exports.cell = cell;
+module.exports.playCell = playCell;
