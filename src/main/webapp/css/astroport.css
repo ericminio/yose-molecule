@@ -1,0 +1,14 @@
+body {
+    background-color: cornflowerblue;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: white;
+    padding: 2%;
+}
+
+h1 {
+    margin: 0;
+}

@@ -14,22 +14,23 @@ import java.io.IOException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.core.StringContains.containsString;
 
 public class YosePlayerTest {
 
-    YosePlayer yosePlayer = new YosePlayer(new Gson());
-    WebServer server = WebServer.create(9999);
+    YosePlayer yosePlayer = new YosePlayer( new Gson() );
+    WebServer server = WebServer.create( 9999 );
     private String staticAssetsFolder = "src/test/data";
 
-    HttpRequest request = new HttpRequest(9999);
+    HttpRequest request = new HttpRequest( 9999 );
     HttpResponse response;
 
     @Before
     public void startGame() throws Exception {
-        yosePlayer.serveStaticAssetsInFolder(staticAssetsFolder);
-        yosePlayer.start(server);
+        yosePlayer.serveStaticAssetsInFolder( staticAssetsFolder );
+        yosePlayer.start( server );
 
-        new File(staticAssetsFolder).mkdir();
+        new File( staticAssetsFolder ).mkdir();
     }
 
     @After
@@ -39,32 +40,40 @@ public class YosePlayerTest {
 
     @Test
     public void canServeJs() throws IOException {
-        new File(staticAssetsFolder + "/js").mkdir();
-        createFileWithGivenContent(new File(staticAssetsFolder + "/js/js-file"), "this is a js file");
-        response = request.get("/js/js-file");
+        new File( staticAssetsFolder + "/js" ).mkdir();
+        createFileWithGivenContent( new File( staticAssetsFolder + "/js/js-file" ), "this is a js file" );
+        response = request.get( "/js/js-file" );
 
         response.assertOK();
-        response.assertHasContent("this is a js file");
+        response.assertHasContent( "this is a js file" );
     }
 
     @Test
     public void canServeCss() throws IOException {
-        new File(staticAssetsFolder + "/css").mkdir();
-        createFileWithGivenContent(new File(staticAssetsFolder + "/css/css-file"), "this is a css file");
-        response = request.get("/css/css-file");
+        new File( staticAssetsFolder + "/css" ).mkdir();
+        createFileWithGivenContent( new File( staticAssetsFolder + "/css/css-file" ), "this is a css file" );
+        response = request.get( "/css/css-file" );
 
         response.assertOK();
-        response.assertHasContent("this is a css file");
+        response.assertHasContent( "this is a css file" );
     }
 
     @Test
     public void servesStaticContentInWebappFolder() {
-        assertThat(new YosePlayer(null).staticAssetsPath, equalTo("src/main/webapp/"));
+        assertThat( new YosePlayer( null ).staticAssetsPath, equalTo( "src/main/webapp/" ) );
     }
 
     protected void createFileWithGivenContent(File file, String content) throws IOException {
-        FileWriter writer = new FileWriter(file);
-        writer.write(content);
+        FileWriter writer = new FileWriter( file );
+        writer.write( content );
         writer.close();
+    }
+
+    @Test
+    public void canServeAstroportChallenges() throws IOException {
+        response = request.get( "/astroport" );
+
+        response.assertOK();
+        response.assertHasContent( containsString( "astroport" ) );
     }
 }

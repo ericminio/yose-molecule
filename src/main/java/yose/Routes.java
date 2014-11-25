@@ -11,5 +11,6 @@ public class Routes extends DynamicRoutes {
         get("/ping").to(new Ping(gson)::pong);
         get("/primeFactors").to(new Primes(gson)::list);
         get("/minesweeper").to(new Minesweeper(gson)::page);
+        get("/astroport").to(new Astroport()::page);
     }
 }
