@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/astroport.css" rel="stylesheet" type="text/css">
-</head>
+    <script src="/js/astroport.js"></script></head>
 <body>
 
     <section id="header">
@@ -13,21 +13,30 @@
 
     <ol id="gates">
 
-        <li id="gate-1" class="gate">
+        <li id="gate-1" class="free gate">
             <label class="ship-label">Ship</label>
-            <label id="ship-name-1">-- None --</label>
+            <label id="ship-1">-- None --</label>
+            <button id="undock-1" class="hidden" onclick="new Docker().undock(document);">Undock</button>
         </li>
 
-        <li id="gate-2" class="gate">
+        <li id="gate-2" class="free gate">
             <label class="ship-label">Ship</label>
-            <label id="ship-name-2">-- None --</label>
+            <label id="ship-2">-- None --</label>
         </li>
 
-        <li id="gate-3" class="gate">
+        <li id="gate-3" class="free gate">
             <label class="ship-label">Ship</label>
-            <label id="ship-name-3">-- None --</label>
+            <label id="ship-3">-- None --</label>
         </li>
 
     </ol>
+
+    <section id="docker" class="box">
+        <label for="ship">Ship</label>
+        <input type="text" id="ship">
+
+        <button onclick="new Docker().dock(document);" >Dock</button>
+    </section>
+
 </body>
 </html>

@@ -15,20 +15,40 @@ h1 {
 
 #gates {
     margin: 2%;
+    padding: 0;
 }
 
-.gate {
-    background-color: white;
+.gate, .box {
     border: black 1px solid;
     border-radius: 7px;
     padding: 2%;
 
     display: inline-block;
     width: 300px;
+}
+
+.gate {
     margin-bottom: 2%;
+}
+
+.free {
+    background-color: #f3f3f3;
+}
+
+.occupied {
+    background-color: #bababa;
 }
 
 .ship-label {
     font-weight: 700;
     display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+#docker {
+    background-color: white;
+    margin: 2%;
 }

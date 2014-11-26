@@ -28,6 +28,8 @@ public class AstroportChallenge {
         server = WebServer.create( PORT );
         yosePlayer.start( server );
         browser = new AsyncWebDriver( new UnsynchronizedProber(), new PhantomJSDriver() );
+
+        browser.navigate().to( baseUrl() + "/astroport" );
     }
 
     @After
@@ -38,16 +40,12 @@ public class AstroportChallenge {
 
     @Test
     public void displaysAstroportName() {
-        browser.navigate().to( baseUrl() + "/astroport" );
-
         browser.element( By.id( "astroport-name" ) ).assertExists();
         browser.element( By.id( "astroport-name" ) ).assertText( not( isEmptyString() ) );
     }
 
     @Test
     public void displaysTheThreeAvailableGates() {
-        browser.navigate().to( baseUrl() + "/astroport" );
-
         browser.element( By.id( "gate-1" ) ).assertExists();
         browser.element( By.id( "gate-2" ) ).assertExists();
         browser.element( By.id( "gate-3" ) ).assertExists();
@@ -55,11 +53,9 @@ public class AstroportChallenge {
 
     @Test
     public void eachGateSectionHasAShipPlaceholder() {
-        browser.navigate().to( baseUrl() + "/astroport" );
-
-        browser.element( By.id( "ship-name-1" ) ).assertText( containsString( "None" ) );
-        browser.element( By.id( "ship-name-2" ) ).assertText( containsString( "None" ) );
-        browser.element( By.id( "ship-name-3" ) ).assertText( containsString( "None" ) );
+        browser.element( By.id( "ship-1" ) ).assertText( containsString( "None" ) );
+        browser.element( By.id( "ship-2" ) ).assertText( containsString( "None" ) );
+        browser.element( By.id( "ship-3" ) ).assertText( containsString( "None" ) );
     }
 
     public String baseUrl() {
