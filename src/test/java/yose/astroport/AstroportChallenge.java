@@ -13,8 +13,7 @@ import yose.YosePlayer;
 
 import java.io.IOException;
 
-import static org.hamcrest.Matchers.isEmptyString;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 
 public class AstroportChallenge {
 
@@ -43,6 +42,24 @@ public class AstroportChallenge {
 
         browser.element( By.id( "astroport-name" ) ).assertExists();
         browser.element( By.id( "astroport-name" ) ).assertText( not( isEmptyString() ) );
+    }
+
+    @Test
+    public void displaysTheThreeAvailableGates() {
+        browser.navigate().to( baseUrl() + "/astroport" );
+
+        browser.element( By.id( "gate-1" ) ).assertExists();
+        browser.element( By.id( "gate-2" ) ).assertExists();
+        browser.element( By.id( "gate-3" ) ).assertExists();
+    }
+
+    @Test
+    public void eachGateSectionHasAShipPlaceholder() {
+        browser.navigate().to( baseUrl() + "/astroport" );
+
+        browser.element( By.id( "ship-name-1" ) ).assertText( containsString( "None" ) );
+        browser.element( By.id( "ship-name-2" ) ).assertText( containsString( "None" ) );
+        browser.element( By.id( "ship-name-3" ) ).assertText( containsString( "None" ) );
     }
 
     public String baseUrl() {
