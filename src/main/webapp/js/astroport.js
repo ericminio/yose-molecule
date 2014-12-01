@@ -9,6 +9,7 @@ Docker.prototype.dock = function(document) {
     gate.className = "occupied gate"
     ship.innerHTML = field.value;
     undock.className = "";
+    field.value = "";
 }
 
 Docker.prototype.undock = function(document) {
