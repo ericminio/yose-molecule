@@ -9,19 +9,14 @@ Docker.prototype.dock = function(document) {
     gate.className = "occupied gate"
     ship.innerHTML = field.value;
     undock.className = "";
-    field.value = "";
 }
 
 Docker.prototype.undock = function(document) {
-    var field = document.getElementById("ship");
     var gate = document.getElementById("gate-1");
     var ship = document.getElementById("ship-1");
     var undock = document.getElementById("undock-1");
 
     gate.className = "free gate";
-    field.value = ship.innerHTML;
     ship.innerHTML = "-- None --";
     undock.className = "hidden";
-    field.focus();
-    field.setSelectionRange(0, field.value.length);
 }
