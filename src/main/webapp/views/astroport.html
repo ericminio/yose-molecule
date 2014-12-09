@@ -16,7 +16,6 @@
         <li id="gate-1" class="free gate">
             <label class="ship-label">Ship</label>
             <label id="ship-1">-- None --</label>
-            <button id="undock-1" class="hidden" onclick="new Docker().undock(document);">Undock</button>
         </li>
 
         <li id="gate-2" class="free gate">
@@ -33,9 +32,13 @@
 
     <section id="docker" class="box">
         <label for="ship">Ship</label>
-        <input type="text" id="ship">
+        <input type="text" id="ship" oninput="hideInfo();">
 
         <button id="dock" onclick="new Docker().dock(document);" >Dock</button>
+    </section>
+
+    <section id="info" class="box hidden">
+        The ship has been docked at gate 1
     </section>
 
 </body>

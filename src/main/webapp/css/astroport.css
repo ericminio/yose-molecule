@@ -52,3 +52,12 @@ h1 {
     background-color: white;
     margin: 2%;
 }
+
+#info {
+    background-color: lightyellow;
+    margin-left: 2%;
+}
+
+.hidden {
+    display: none;
+}

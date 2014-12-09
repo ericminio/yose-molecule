@@ -4,20 +4,19 @@ Docker.prototype.dock = function(document) {
     var field = document.getElementById("ship");
     var gate = document.getElementById("gate-1");
     var ship = document.getElementById("ship-1");
-    var undock = document.getElementById("undock-1");
+    var info = document.getElementById("info");
+    var infoClasses = info.className;
 
     gate.className = "occupied gate"
     ship.innerHTML = field.value;
-    undock.className = "";
     field.value = "";
+    info.className = infoClasses.replace('hidden', '');
 }
 
-Docker.prototype.undock = function(document) {
-    var gate = document.getElementById("gate-1");
-    var ship = document.getElementById("ship-1");
-    var undock = document.getElementById("undock-1");
+function hideInfo() {
+    var info = document.getElementById("info");
 
-    gate.className = "free gate";
-    ship.innerHTML = "-- None --";
-    undock.className = "hidden";
+    if (info.className.indexOf('hidden') === -1) {
+        info.className = info.className + ' hidden';
+    }
 }
